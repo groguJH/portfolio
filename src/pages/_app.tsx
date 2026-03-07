@@ -1,6 +1,12 @@
-import "No/styles/globals.css";
+import NavigationContainer from "../containers/NavigationContainer";
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <NavigationContainer />
+      <Component {...pageProps} />
+    </>
+  );
 }
