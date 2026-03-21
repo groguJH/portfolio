@@ -1,10 +1,142 @@
 import React from "react";
+import * as S from "./utils/ProjectsCard";
+import Image from "next/image";
+import { ProjectsPresenterProps } from "No/containers/ProjectsContainer";
+import {
+  CardContent,
+  CardHeader,
+  CardTitle,
+  ItemDesc,
+} from "./utils/GlassSkillsCard";
+import {
+  GithubIcon,
+  LinkWrapper,
+  PortfolioLinkIcon,
+} from "./utils/ProjectsCard";
+import { SendingEmail } from "./utils/contractEmail";
 
-export default function ProjectsPresenter() {
+export default function ProjectsPresenter({
+  activeTab,
+  setActiveTab,
+  projects,
+  tabs,
+  selectedProject,
+  setSelectedProject,
+}: ProjectsPresenterProps) {
   return (
-    <section id="Projects">
-      <h1>Projects</h1>
-      {/* 이미지, 제목, 설명, 기술 */}
-    </section>
+    <S.Section id="Projects">
+      <S.Title>Projects</S.Title>
+
+      {/* 탭 네비게이션 */}
+      <S.FilterContainer>
+        {tabs.map((tab) => (
+          <S.Tab
+            key={tab}
+            active={activeTab === tab}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab}
+          </S.Tab>
+        ))}
+      </S.FilterContainer>
+
+      <S.ProjectGrid>
+        {projects.map((project) => (
+          <S.ProjectItem
+            key={project.id}
+            onClick={() => setSelectedProject(project)}
+          >
+            <CardHeader>
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "200px",
+                  marginBottom: "20px",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                }}
+              >
+                <Image
+                  src={project.img}
+                  alt={project.title}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <CardTitle style={{ color: "white" }}>{project.title}</CardTitle>
+            </CardHeader>
+
+            <CardContent>
+              <ItemDesc style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                {project.desc}
+              </ItemDesc>
+              <S.TagGroup>
+                {project.tags.map((tag, index) => (
+                  <S.Tag key={index}>{tag}</S.Tag>
+                ))}
+              </S.TagGroup>
+            </CardContent>
+          </S.ProjectItem>
+        ))}
+      </S.ProjectGrid>
+
+      {selectedProject && (
+        <S.ModalOverlay onClick={() => setSelectedProject(null)}>
+          <S.ModalContent onClick={(e) => e.stopPropagation()}>
+            <S.CloseBtn onClick={() => setSelectedProject(null)}>X</S.CloseBtn>
+
+            <S.ModalTitle>{selectedProject.title}</S.ModalTitle>
+
+            <S.ModalHeader>
+              <S.SectionTitle>프로젝트 설명</S.SectionTitle>
+              <p>
+                {selectedProject.detailDesc1.split("\n").map((line, index) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </p>
+
+              <LinkWrapper>
+                <a>
+                  <GithubIcon />
+                  깃허브 바로가기
+                </a>
+                <a>
+                  <PortfolioLinkIcon />
+                  서비스 바로가기
+                </a>
+              </LinkWrapper>
+            </S.ModalHeader>
+            <S.UnderLine />
+            <S.ModalSection>
+              <S.SectionTitle>주요 기능 소개</S.SectionTitle>
+              <ul>
+                {selectedProject.detailDesc2.split("\n").map((line, index) => (
+                  <li key={index}>{line}</li>
+                ))}
+              </ul>
+            </S.ModalSection>
+
+            {/* 서브 이미지 미리보기 */}
+            <S.SubImageGrid>
+              {selectedProject.subImages.map(
+                (img, idx) =>
+                  img && (
+                    <img
+                      key={idx}
+                      src={img}
+                      alt="sub"
+                      style={{ width: "100%", borderRadius: "8px" }}
+                    />
+                  ),
+              )}
+            </S.SubImageGrid>
+          </S.ModalContent>
+        </S.ModalOverlay>
+      )}
+    </S.Section>
   );
 }

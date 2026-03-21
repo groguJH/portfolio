@@ -4,7 +4,6 @@ import React, { JSX } from "react";
 export default function NavigationContainer(): JSX.Element {
   return (
     <nav>
-      <Link href="#Intro">Intro</Link>
       <Link href="#About">About</Link>
       <Link href="#Skills">Skills</Link>
       <Link href="#Projects">Projects</Link>

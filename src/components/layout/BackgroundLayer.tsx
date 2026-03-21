@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import React, { JSX, ReactNode } from "react";
 import { easeInOut } from "framer-motion";
