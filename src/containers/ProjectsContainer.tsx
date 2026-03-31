@@ -21,7 +21,6 @@ export default function ProjectsContainer() {
     null,
   );
   const [activeTab, setActiveTab] = useState<TabType>("Featured");
-  // 탭 변경에 따른 필터링 로직 추가
   const filteredProjects = useMemo(() => {
     if (activeTab === "All") return PROJECTS_DATA;
     if (activeTab === "Featured")

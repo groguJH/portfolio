@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from "./utils/ProjectsCard";
 import Image from "next/image";
 import { ProjectsPresenterProps } from "No/containers/ProjectsContainer";
@@ -13,7 +13,6 @@ import {
   LinkWrapper,
   PortfolioLinkIcon,
 } from "./utils/ProjectsCard";
-import { SendingEmail } from "./utils/contractEmail";
 
 export default function ProjectsPresenter({
   activeTab,
@@ -23,6 +22,27 @@ export default function ProjectsPresenter({
   selectedProject,
   setSelectedProject,
 }: ProjectsPresenterProps) {
+  const [activeImage, setActiveImage] = React.useState<string | null>(null);
+  const dialogRef = React.useRef<HTMLDialogElement>(null);
+
+  const handleImageClick = (imgSrc: string) => {
+    setActiveImage(imgSrc);
+    dialogRef.current?.showModal();
+  };
+
+  const isModalOpen = !!selectedProject || !!activeImage;
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [selectedProject, activeImage]);
+
   return (
     <S.Section id="Projects">
       <S.Title>Projects</S.Title>
@@ -100,14 +120,28 @@ export default function ProjectsPresenter({
               </p>
 
               <LinkWrapper>
-                <a>
-                  <GithubIcon />
-                  깃허브 바로가기
-                </a>
-                <a>
-                  <PortfolioLinkIcon />
-                  서비스 바로가기
-                </a>
+                {selectedProject.githubUrl && (
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    <GithubIcon />
+                    깃허브 바로가기
+                  </a>
+                )}
+                {selectedProject.serviceUrl && (
+                  <a
+                    href={selectedProject.serviceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    <PortfolioLinkIcon />
+                    서비스 바로가기
+                  </a>
+                )}
               </LinkWrapper>
             </S.ModalHeader>
             <S.UnderLine />
@@ -129,13 +163,28 @@ export default function ProjectsPresenter({
                       key={idx}
                       src={img}
                       alt="sub"
-                      style={{ width: "100%", borderRadius: "8px" }}
+                      style={{
+                        objectFit: "contain",
+                        width: "100%",
+                        borderRadius: "8px",
+                      }}
+                      onClick={() => handleImageClick(img)}
                     />
                   ),
               )}
             </S.SubImageGrid>
           </S.ModalContent>
         </S.ModalOverlay>
+      )}
+      {activeImage && (
+        <S.LightboxDialog
+          ref={dialogRef}
+          onClick={() => dialogRef.current?.close()}
+        >
+          <div className="lightbox-container">
+            <img src={activeImage} alt="Lightbox" />
+          </div>
+        </S.LightboxDialog>
       )}
     </S.Section>
   );

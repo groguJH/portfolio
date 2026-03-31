@@ -34,7 +34,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       },
       {
         name: `React 18`,
-        desc: `Concurrent Rendering 기능을 활용하여 사용자 인터페이스의 반응성을 향상시킵니다.`,
+        desc: `동시성렌더링 기능을 이해하여 로딩상태를 선언적으로 관리하여 사용자경험을 향상시킬 수 있습니다.`,
       },
     ],
   },
@@ -110,7 +110,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       },
       {
         name: `JSDoc`,
-        desc: `코드 문서화를 통해 코드 이해도를 높이고 협업 효율을 향상시켰습니다.`,
+        desc: `코드 문서화를 통해 코드 이해도를 높이고 협업시 효율을 향상시킬 수 있습니다.`,
       },
     ],
   },

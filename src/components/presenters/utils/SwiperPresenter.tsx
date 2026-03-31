@@ -16,7 +16,7 @@ export default function SwiperPresenter() {
         centeredSlides={true}
         mousewheel={true}
         freeMode={true}
-        style={{ width: "100%", height: "550px" }} // 높이는 여유 있게 조절
+        style={{ width: "100%", height: "550px" }}
       >
         {SKILLS_DATA.map((category, idx) => (
           <SwiperSlide key={idx} className="auto-width-slide">

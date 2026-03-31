@@ -1,15 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
-import React, { JSX, ReactNode } from "react";
-import { easeInOut } from "framer-motion";
+import { motion, easeInOut } from "framer-motion";
 
-interface BackgroundLayoutProps {
-  children: ReactNode;
-}
-
-export function BackgroundLayout({
-  children,
-}: BackgroundLayoutProps): JSX.Element {
+export function BackgroundLayer() {
   const floatingAnimation = (delay: number) => ({
     animate: {
       x: [0, 15, -15, 0],
@@ -26,13 +18,18 @@ export function BackgroundLayout({
   });
 
   return (
-    <motion.div
-      className="scroll-infinityDiv"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+        zIndex: -1,
+        pointerEvents: "none",
+      }}
     >
-      {/* 배경 원들을 motion.div로 감싸서 애니메이션 적용 */}
       <motion.div
         className="circle1 gradient-circle"
         {...floatingAnimation(0)}
@@ -41,9 +38,6 @@ export function BackgroundLayout({
         className="circle2 gradient-circle"
         {...floatingAnimation(2)}
       />
-
-      {/* 감싸진 자식 컴포넌트들이 출력되는 위치 */}
-      <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
-    </motion.div>
+    </div>
   );
 }

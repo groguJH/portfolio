@@ -5,6 +5,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import axios from "axios";
+import { message } from "antd";
 
 const emailSchema = z.object({
   email: z.string().email({ message: "올바른 이메일 형식을 입력해주세요." }),
@@ -17,8 +19,10 @@ const emailSchema = z.object({
 export type ContactFormData = z.infer<typeof emailSchema>;
 
 export default function ContactContainer() {
+  const [messageApi, contextHolder] = message.useMessage();
+
   const {
-    formState: { isSubmitting },
+    formState: { isSubmitting, errors },
     register,
     handleSubmit,
     reset,
@@ -28,19 +32,27 @@ export default function ContactContainer() {
 
   async function onSubmit(data: ContactFormData) {
     try {
-      console.log("추워");
-      console.log("전송 데이터:", data);
-      alert("문의가 성공적으로 접수되었습니다.");
+      const response = await axios.post("/api/contact", data);
+      if (response.status === 200) {
+        console.log(response.data);
+        messageApi.success("메일 전송했습니다.");
+        reset();
+      }
     } catch (error) {
-      alert("전송 중 오류가 발생했습니다.");
+      console.error("전송 에러:", error);
+      messageApi.error("서버 오류로 인해 전송 실패했습니다.");
     }
   }
 
   return (
-    <ContactPresenter
-      register={register}
-      handleSubmit={handleSubmit(onSubmit)}
-      isSubmitting={isSubmitting}
-    />
+    <>
+      {contextHolder}
+      <ContactPresenter
+        register={register}
+        handleSubmit={handleSubmit(onSubmit)}
+        isSubmitting={isSubmitting}
+        errors={errors}
+      />
+    </>
   );
 }

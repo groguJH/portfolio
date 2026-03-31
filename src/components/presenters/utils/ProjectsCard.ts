@@ -11,12 +11,21 @@ export const Section = styled.section`
   align-items: center;
   padding: 100px 20px;
   background-color: transparent;
+
+  @media (max-width: 768px) {
+    padding: 96px 16px 72px;
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 42px;
   font-weight: 700;
   margin-bottom: 4rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+    font-size: 34px;
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -28,10 +37,16 @@ export const FilterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 32px;
   margin-bottom: 40px;
   width: 100%;
   max-width: 1200px;
+
+  @media (max-width: 768px) {
+    gap: 10px 14px;
+    margin-bottom: 28px;
+  }
 `;
 
 export const FilterIcon = styled.div`
@@ -66,9 +81,15 @@ export const Tab = styled.div<TabProps>`
   cursor: pointer;
   position: relative;
   transition: color 0.2s;
+  text-align: center;
+  overflow-wrap: anywhere;
 
   &:hover {
     color: #4a6fa5;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
   }
 `;
 
@@ -86,10 +107,12 @@ export const ProjectGrid = styled.div`
   }
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 `;
 
 export const ProjectItem = styled.div`
+  min-width: 0;
   padding: 28px;
   border-radius: 16px;
 
@@ -103,6 +126,10 @@ export const ProjectItem = styled.div`
   &:hover {
     transform: translateY(-6px);
     background: rgba(255, 255, 255, 0.12);
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
   }
 `;
 
@@ -141,6 +168,12 @@ export const ModalContent = styled.div`
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
   }
+
+  @media (max-width: 768px) {
+    width: 94%;
+    max-height: 85vh;
+    padding: 24px 18px;
+  }
 `;
 
 export const ModalSection = styled.div`
@@ -148,9 +181,11 @@ export const ModalSection = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 1rem;
+  width: 100%;
   p {
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
+    overflow-wrap: anywhere;
   }
   ol {
     color: rgba(255, 255, 255, 0.8);
@@ -158,6 +193,11 @@ export const ModalSection = styled.div`
   li {
     list-style-type: decimal;
     margin-bottom: 8px;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
   }
 `;
 
@@ -166,6 +206,10 @@ export const SectionTitle = styled.h4`
   font-weight: 700;
   color: #64ffda;
   margin: 16px auto;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const ModalTitle = styled.h3`
@@ -175,6 +219,11 @@ export const ModalTitle = styled.h3`
   color: white;
   padding-bottom: 15px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+    padding-bottom: 10px;
+  }
 `;
 
 export const CloseBtn = styled.button`
@@ -191,6 +240,47 @@ export const CloseBtn = styled.button`
   &:hover {
     color: white;
   }
+
+  @media (max-width: 768px) {
+    top: 14px;
+    right: 14px;
+    font-size: 20px;
+  }
+`;
+
+export const LightboxDialog = styled.dialog`
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  max-width: 90vw;
+  max-height: 90vh;
+  outline: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+  }
+
+  .lightbox-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+  }
 `;
 
 export const SubImageGrid = styled.div`
@@ -206,6 +296,10 @@ export const SubImageGrid = styled.div`
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ModalHeader = styled.div`
@@ -217,24 +311,37 @@ export const ModalHeader = styled.div`
   align-items: center;
 
   p {
-    max-width: 90%;
+    max-width: 100%;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
-    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
 `;
 
 export const LinkWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 3rem;
+  gap: 20px;
+  margin-top: 32px;
 
-  a {
+  a.project-link {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 8px;
     text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    svg {
+      transition: all 0.3s ease;
+      fill: currentColor;
+    }
+
+    &:hover {
+      color: #a855f7;
+      transform: translateY(-2px);
+    }
   }
 `;
 
@@ -261,4 +368,9 @@ export const UnderLine = styled.hr`
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin: 3.5rem auto; /* 위아래 간격을 주고 좌우 auto로 중앙 정렬 */
   color: rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin: 2rem auto;
+  }
 `;

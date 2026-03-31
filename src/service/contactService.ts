@@ -12,7 +12,8 @@ interface MailPayload {
  * @param {string} email
  * @param {string} title
  * @param {string} message
- * @description : API라우트에서 요청한 데이터를 받아 nodemailer는 전송하고 slack webhook의 주소로 요청합니다.
+ * @description : API라우트에서 요청한 데이터를 받아 nodemailer는 전송하고
+ * slack webhook의 주소로 요청합니다.
  */
 
 async function sendEMail(payload: MailPayload) {
@@ -26,7 +27,7 @@ async function sendEMail(payload: MailPayload) {
 
   const mailOptions = {
     from: payload.email,
-    to: process.env.MY_EMAIL,
+    to: process.env.EMAIL_USER,
     subject: `[구직알람] ${payload.title}`,
     text: `보낸 사람: ${payload.email}\n 내용: ${payload.message}`,
   };

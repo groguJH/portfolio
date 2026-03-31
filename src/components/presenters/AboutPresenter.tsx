@@ -1,31 +1,43 @@
 import React from "react";
 import {
   InfoButton,
+  InfoContent,
   InformationContainer,
   InfoWrapper,
   IntroText,
   Section,
   Title,
 } from "./utils/IntroPresenter";
-import Image from "next/image";
 import { INTRO_DATA } from "../../data/intro";
+import profileImage from "../../../public/myProfileBadge.json";
+import Lottie from "lottie-react";
 
 export default function AboutPresenter() {
   return (
     <Section id="About">
       <Title>About</Title>
       <InformationContainer>
-        {/* <ImageContainer> */}
-        <Image
-          src={INTRO_DATA.profileImage}
-          alt="Profile Badge"
-          width={160} // 크기를 조금 더 키움
-          height={160}
-          style={{ borderRadius: "50%" }}
-        />
-        {/* </ImageContainer> */}
-        {/* 사진 아래엔 깃허브 이메일 contract 연결한다. */}
+        <div
+          style={{
+            width: 240,
+            height: 240,
+            borderRadius: "50%",
+          }}
+        >
+          <Lottie
+            animationData={profileImage}
+            loop={true}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </div>
+
         <InfoWrapper>
+          <InfoContent>
+            <p>{INTRO_DATA.contract.phone}</p>
+            <br />
+            <p>{INTRO_DATA.contract.email}</p>
+          </InfoContent>
+
           {INTRO_DATA.links.map((link) => (
             <InfoButton
               key={link.id}
@@ -41,7 +53,13 @@ export default function AboutPresenter() {
       </InformationContainer>
 
       <IntroText>
-        <p>
+        <p
+          style={{
+            whiteSpace: "pre-line",
+            fontSize: "16px",
+            lineHeight: "1.6",
+          }}
+        >
           {INTRO_DATA.description.map((line, index) => (
             <React.Fragment key={index}>
               {line} <br />

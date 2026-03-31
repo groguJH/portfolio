@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { contractTotalRequest } from "../service/contactService";
+import { contractTotalRequest } from "../../service/contactService";
 
 export default async function handler(
   req: NextApiRequest,
