@@ -1,9 +1,13 @@
 # 🫧포트폴리오 사이트
 
+![About](https://github.com/user-attachments/assets/871c00a9-f04f-4df7-a242-e66819b7660f)
+
+
 `Next.js`로 만든 신입 프론트엔드 개발자 강정화의 개인 포트폴리오 사이트입니다.  
 파도 및 About에 사용되는 프로필 뱃지는 Figma와 LottieFiles를 사용해 만들었으며
 단일 페이지 구조 안에서 자기소개, 기술 스택, 프로젝트, 연락 섹션을 보여주고, 인트로 애니메이션과 문의 메일 전송 기능을 갖춘 사이트입니다.
 <br/>
+
 
 ## 프로젝트 소개
 
@@ -23,8 +27,9 @@ URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네
 <br/>
 
 ([포트폴리오 사이트 링크🔗 ](https://junghwa-portfolio.vercel.app/))<br/><br/>
+
 <br/>
-<br/>
+
 
 ## 기술 스택
 
@@ -59,14 +64,23 @@ URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네
 
 ### 1. 메인 화면 구성
 
-- `src/pages/index.tsx`에서 섹션 단위로 페이지를 조합했습니다.
-- `About`, `Skills`, `Projects`, `Contact` 순서로 자연스럽게 이어지는 구조입니다.
+- `src/pages/index.tsx`에서 섹션 단위로 페이지를 조합하여 `About`, `Skills`, `Projects`, `Contact` 순서로 자연스럽게 이어지는 구조입니다.
 - `useHashScroll` 훅으로 현재 보고 있는 섹션에 맞춰 URL 해시가 갱신됩니다.
+- 반응형 디자인으로 제작하여 다양한 기기 및 화면 크기에 맞게 자연스러운 렌더링이 되도록 구현했습니다.
+
+<br/>
+![intro](https://github.com/user-attachments/assets/15d1c0a7-6769-4884-b3cf-41485d37df62)
+
 
 ### 2. 인터랙션과 애니메이션
 
 - `GreetingLayer`에서 첫 진입 인트로 애니메이션을 보여줍니다.
 - `BackgroundLayer`, `ScrollGuide`, `GlassCursorContainer`로 사이트 전반의 움직임을 구성했습니다.
+
+<br/>
+![intro](https://github.com/user-attachments/assets/b79da5c8-8ed7-436b-9e40-94a52582ac40)
+
+
 - 1. 멈추지 않는 흐름: 파도와 물방울
      화면을 채우는 파도와 물방울은 빠르게 변화하는 웹 생태계를 나타냅니다. 끊임없이 움직이는 파도처럼 기술적 성장을 멈추지 않고 유연하게 적응하는 개발자가 되고자 하는 마음을 시각적으로 구현했습니다.
 
@@ -76,23 +90,42 @@ URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네
 - 3. 생동감 있는 디테일 : 움직이는 뱃지
      정적인 텍스트에 움직이는 뱃지를 더해 중앙으로 시선을 집중시키고 싶었고, 작은 디테일에서도 생동감을 느낄 수 있는 인터페이스를 지향했습니다.
 
+<br/>
+
+
 ### 3. 컴포넌트와 데이터의 분리
 
 - 재사용 가능한 컴포넌트를 구현해보고 싶었고 `src/data` 폴더 에 정리해두고 각각 UI에 연결했습니다.
 - `Featured / Vanilla JS / Next.js / All` 탭으로 분류해 프로젝트 별로 구분해놓았습니다.
 - 컨테이너/프리젠터 패턴을 통해 각각의 컴포넌트를 분리했습니다.
 
+<br/>
+
 ### 4. Skills 및 Projects 섹션 구현
 
 - Skills는 Swiper 라이브러리를 사용하여 기술을 한눈에 볼 수 있도록 가로로 펼쳐지도록 구성했습니다.
 - Projects의 컨텐츠를 클릭하면 상세 설명, 기술 태그, GitHub 링크, 서비스 링크, 서브 이미지가 모달로 열립니다.
+
+<br/>
 
 ### 4. 연락 기능
 
 - `react-hook-form`과 `zod`로 입력값을 검증했습니다.
 - `src/pages/api/contact.ts`에서 API 요청을 받고,
   `src/service/contactService.ts`에서 메일 전송과 Slack 알림을 처리합니다.
+  
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/2b8ab4fd-7910-4412-9ea8-c83eba629660" width="500px" height="auto" alt="port3" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/bf49257d-b9c4-414a-8977-978eaf34cb9c" width="500px" height="auto" alt="port4" />
+    </td>
+  </tr>
+</table>
 
+<br/>
 <br/>
 
 ## 폴더 구조
