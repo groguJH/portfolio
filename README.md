@@ -7,7 +7,7 @@
 파도 및 About에 사용되는 프로필 뱃지는 Figma와 LottieFiles를 사용해 만들었으며
 단일 페이지 구조 안에서 자기소개, 기술 스택, 프로젝트, 연락 섹션을 보여주고, 인트로 애니메이션과 문의 메일 전송 기능을 갖춘 사이트입니다.
 <br/>
-
+<br/>
 
 ## 프로젝트 소개
 
@@ -15,6 +15,7 @@
 프론트엔드 개발 스택, 구현된 이미지를 한번에 확인할 수 있으며 연락 기능을 구현한 개인 포트폴리오 사이트입니다.
 URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네비게이션을 구현했으며
 헤더의 메뉴 클릭시 스크롤 이동이 가능합니다.
+<br/>
 또한 기술설명은 왜 사용했는지를 한눈에 소개 할 수 있도록 Swiper 라이브러리를 사용했습니다.
 세부 이미지는 dialog로 구현하여 클릭시 확대된 이미지를 볼 수 있게 구현했습니다.
 반응형 디자인을 적용하여 다양한 기기 및 화면에 맞게 자연스러운 렌더링이 되도록 구현했습니다.
@@ -69,8 +70,10 @@ URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네
 - 반응형 디자인으로 제작하여 다양한 기기 및 화면 크기에 맞게 자연스러운 렌더링이 되도록 구현했습니다.
 
 <br/>
-![intro](https://github.com/user-attachments/assets/15d1c0a7-6769-4884-b3cf-41485d37df62)
 
+![responsive](https://github.com/user-attachments/assets/4eacd009-67e7-4945-bf87-ceb1af2f9e91)
+
+<br/>
 
 ### 2. 인터랙션과 애니메이션
 
@@ -78,7 +81,10 @@ URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네
 - `BackgroundLayer`, `ScrollGuide`, `GlassCursorContainer`로 사이트 전반의 움직임을 구성했습니다.
 
 <br/>
-![intro](https://github.com/user-attachments/assets/b79da5c8-8ed7-436b-9e40-94a52582ac40)
+
+![intro](https://github.com/user-attachments/assets/79cd8974-8177-4fc2-9973-7e52a09ab744)
+
+<br/>
 
 
 - 1. 멈추지 않는 흐름: 파도와 물방울
@@ -108,6 +114,10 @@ URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네
 
 <br/>
 
+![skills](https://github.com/user-attachments/assets/5dfcefba-d7fd-467d-891c-c7aa13d9d601)
+
+<br/>
+
 ### 4. 연락 기능
 
 - `react-hook-form`과 `zod`로 입력값을 검증했습니다.
@@ -126,7 +136,7 @@ URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네
 </table>
 
 <br/>
-<br/>
+
 
 ## 폴더 구조
 
