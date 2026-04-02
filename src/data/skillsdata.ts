@@ -9,6 +9,19 @@ export interface SkillCategory {
 }
 export const SKILLS_DATA: SkillCategory[] = [
   {
+    title: "프레임워크",
+    skills: [
+      {
+        name: `Next.js 14 (Pages Router)`,
+        desc: `SSR과 SEO 최적화가 중요한 영화 정보 서비스 특성을 고려해 선택했으며 안정적인 Pages Router 기반으로 빠른 초기 로딩을 지원합니다.`,
+      },
+      {
+        name: `React 18`,
+        desc: `컨테이너/프리젠터 패턴을 사용하여 컴포넌트의 재사용성을 높이고, 라이프사이클을 이해하여 로딩상태를 선언적으로 관리하여 사용자경험을 향상시킬 수 있습니다.`,
+      },
+    ],
+  },
+  {
     title: "라이브러리",
     skills: [
       {
@@ -25,19 +38,7 @@ export const SKILLS_DATA: SkillCategory[] = [
       },
     ],
   },
-  {
-    title: "프레임워크",
-    skills: [
-      {
-        name: `Next.js 14 (Pages Router)`,
-        desc: `SSR과 SEO 최적화가 중요한 영화 정보 서비스 특성을 고려해 선택했으며 안정적인 Pages Router 기반으로 빠른 초기 로딩을 지원합니다.`,
-      },
-      {
-        name: `React 18`,
-        desc: `동시성렌더링 기능을 이해하여 로딩상태를 선언적으로 관리하여 사용자경험을 향상시킬 수 있습니다.`,
-      },
-    ],
-  },
+
   {
     title: "프론트엔드",
     skills: [
