@@ -3,7 +3,7 @@
 ![About](https://github.com/user-attachments/assets/871c00a9-f04f-4df7-a242-e66819b7660f)
 
 
-`Next.js`로 만든 신입 프론트엔드 개발자 강정화의 개인 포트폴리오 사이트입니다.  
+`React`로 만든 신입 프론트엔드 개발자 강정화의 개인 포트폴리오 사이트입니다.  
 파도 및 About에 사용되는 프로필 뱃지는 Figma와 LottieFiles를 사용해 만들었으며
 단일 페이지 구조 안에서 자기소개, 기술 스택, 프로젝트, 연락 섹션을 보여주고, 인트로 애니메이션과 문의 메일 전송 기능을 갖춘 사이트입니다.
 <br/>
@@ -16,8 +16,8 @@
 URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네비게이션을 구현했으며
 헤더의 메뉴 클릭시 스크롤 이동이 가능합니다.
 <br/>
-또한 기술설명은 왜 사용했는지를 한눈에 소개 할 수 있도록 Swiper 라이브러리를 사용했습니다.
-세부 이미지는 dialog로 구현하여 클릭시 확대된 이미지를 볼 수 있게 구현했습니다.
+또한 기술설명은 왜 사용했는지를 한눈에 소개 할 수 있도록 Swiper 라이브러리로 스크롤을 구현했습니다.
+세부 이미지는 dialog로 구현하여 클릭시 원본의 이미지를 볼 수 있게 만들었습니다.
 반응형 디자인을 적용하여 다양한 기기 및 화면에 맞게 자연스러운 렌더링이 되도록 구현했습니다.
 
 - `About / Skills / Projects / Contact` 4개 섹션으로 구성된 싱글 페이지
@@ -36,8 +36,8 @@ URL 끝에 #해시 값을 붙여 Swiper 기술로 스크롤 가능한 해시 네
 
 ### 🌐 프론트엔드
 
-![Next.js](https://img.shields.io/badge/Next.js_14-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js_14-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript_5-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 ### 🎨 UI / Animation
