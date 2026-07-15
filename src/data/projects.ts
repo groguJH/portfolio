@@ -127,4 +127,24 @@ export const PROJECTS_DATA: ProjectEntry[] = [
       "/projectImg/port4.png",
     ],
   },
+  {
+    id: 7,
+    title: "Diary Project",
+    desc: "글감 제공, 감정 기록, 월간 달력과 차트를 연결한 풀스택 다이어리 서비스입니다.",
+    isFeatured: true,
+    category: "Next.js",
+    tags: ["Next.js", "Spring Boot", "NextAuth", "JWT", "PostgreSQL"],
+    img: "/projectImg/DiaryProject1.png",
+    githubUrl: "https://github.com/groguJH/diary-project",
+    serviceUrl: "https://diary-project-beige.vercel.app/",
+    detailDesc1:
+      "짧은 기록도 꾸준한 습관으로 이어질 수 있도록 설계한 풀스택 다이어리 서비스입니다.\n처음에는 localStorage 기반으로 일기 흐름을 검증했지만,\n실제 서비스에 가까운 경험을 만들기 위해 Spring Boot API와 PostgreSQL 저장 구조로 확장했습니다.\nNextAuth는 프론트 세션을, Spring Security와 JWT는 백엔드 API 보호를 담당하도록 나누어\n사용자별 일기 작성·조회·수정·삭제 흐름을 안전하게 연결했습니다.",
+    detailDesc2:
+      "react-hook-form + zod 기반 회원가입 검증과 Credentials·Google 로그인 흐름 구성\nNextAuth 세션에 백엔드 accessToken을 저장하고 API 요청마다 Bearer 토큰 전달\nSpring Security JWT 필터로 인증을 검증하고 userId 기준으로 일기 접근 제한\n일기 작성, 월별 조회, 수정, 삭제 API와 JPA Repository 기반 PostgreSQL 저장 구현\nAnt Design Calendar와 Recharts로 날짜별 작성 횟수, 대표 감정, 평균 글자 수 시각화\nRender health check와 keep-alive 스케줄러, Vercel·Render 환경변수 분리 고려",
+    subImages: [
+      "/projectImg/DiaryProject1.png",
+      "/projectImg/DiaryProject2.png",
+      "/projectImg/DiaryProject3.png",
+    ],
+  },
 ];

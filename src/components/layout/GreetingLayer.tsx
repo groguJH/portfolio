@@ -11,7 +11,7 @@ export default function GreetingLayer() {
   const [show, setShow] = useState(true);
 
   const text1 = "Hello ";
-  const text2 = "프론트엔드 개발자를 꿈꾸는 강정화 입니다.";
+  const text2 = "사용자의 흐름을 먼저 생각하는 개발자 강정화입니다.";
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {

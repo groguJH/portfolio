@@ -19,6 +19,10 @@ export const SKILLS_DATA: SkillCategory[] = [
         name: `React 18`,
         desc: `컨테이너/프리젠터 패턴을 사용하여 컴포넌트의 재사용성을 높이고, 라이프사이클을 이해하여 로딩상태를 선언적으로 관리하여 사용자경험을 향상시킬 수 있습니다.`,
       },
+      {
+        name: `Spring Boot`,
+        desc: `Diary Project에서 Java 기반 REST API 서버를 구성하고 인증, 일기 CRUD, DB 저장 흐름을 프론트엔드와 분리해 구현했습니다.`,
+      },
     ],
   },
   {
@@ -52,15 +56,19 @@ export const SKILLS_DATA: SkillCategory[] = [
       },
       {
         name: `Ant Design`,
-        desc: `폼, 테이블, 캐러셀 등 표준화된 UI 컴포넌트로 빠른 구현을 위해 사용했습니다.`,
+        desc: `폼, 테이블, 캐러셀, 달력 등 표준화된 UI 컴포넌트로 빠른 구현과 안정적인 인터페이스 구성을 위해 사용했습니다.`,
       },
       {
         name: `Emotion`,
         desc: `CSS-in-JS 방식으로 컴포넌트 단위 스타일을 관리하고 동적인 스타일링을 구현합니다.`,
       },
       {
+        name: `styled-components`,
+        desc: `Diary Project에서 공통 레이아웃, 카드, 입력 폼 스타일을 컴포넌트 단위로 분리해 일관된 UI를 구성했습니다.`,
+      },
+      {
         name: `NextAuth.js`,
-        desc: `카카오, 네이버 소셜 로그인과 JWT 기반 세션 관리를 표준화된 방식으로 구현했습니다.`,
+        desc: `Credentials와 소셜 로그인 흐름을 구성하고, 백엔드에서 발급한 JWT를 프론트 세션에 연결해 인증 상태를 관리했습니다.`,
       },
     ],
   },
@@ -74,6 +82,10 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         name: `Framer Motion`,
         desc: `제스처 기반 애니메이션으로 부드러운 UI 전환 경험을 제공합니다.`,
+      },
+      {
+        name: `Recharts`,
+        desc: `Diary Project의 월간 기록 화면에서 날짜별 작성 횟수와 기록 흐름을 막대 그래프로 시각화했습니다.`,
       },
     ],
   },
@@ -91,6 +103,31 @@ export const SKILLS_DATA: SkillCategory[] = [
       {
         name: `MongoDB Driver`,
         desc: `lib/mongodb.ts를 통해 데이터베이스 연결을 관리하고 성능을 최적화했습니다.`,
+      },
+      {
+        name: `PostgreSQL / Supabase`,
+        desc: `관계형 데이터가 필요한 일기 서비스에서 사용자, 소셜 계정, 일기 기록을 분리해 저장하고 관리했습니다.`,
+      },
+    ],
+  },
+  {
+    title: "Java 백엔드",
+    skills: [
+      {
+        name: `Java 21`,
+        desc: `Spring Boot 백엔드의 기반 언어로 사용하며 DTO, Entity, Service 계층을 타입 기반으로 분리해 구현했습니다.`,
+      },
+      {
+        name: `Spring Security + JWT`,
+        desc: `JWT 인증 필터와 stateless 보안 설정을 통해 인증이 필요한 API를 보호하고 사용자별 일기 접근 권한을 검증했습니다.`,
+      },
+      {
+        name: `Spring Data JPA`,
+        desc: `User, Diary, OAuthAccount 엔티티 관계를 설계하고 Repository 메서드로 사용자별 월간 기록 조회와 soft delete 흐름을 구현했습니다.`,
+      },
+      {
+        name: `REST API 설계`,
+        desc: `인증 API와 일기 CRUD API를 분리하고, 프론트엔드에서 Bearer 토큰으로 요청하는 구조를 설계했습니다.`,
       },
     ],
   },
